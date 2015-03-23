@@ -21,7 +21,7 @@ import javax.swing.SwingConstants;
  */
 public class myJPanel1 extends JPanel {
     JButton playButton;
-    ImageIcon ip = new ImageIcon("C:\\Users\\Jeff\\Documents\\NetBeansProjects\\group9 round3\\src\\group9\\round3\\flappy_bird.jpg");
+    ImageIcon ip = new ImageIcon(this.getClass().getResource("flappy_bird.jpg"));
     public myJPanel1()
 	{
             super();
