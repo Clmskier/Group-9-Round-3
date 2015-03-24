@@ -25,9 +25,7 @@ public class myJPanel1 extends JPanel {
     public myJPanel1()
 	{
             super();
-            setBackground(Color.DARK_GRAY);
             setLayout(new GridLayout(6,1));
-            
             JLabel jlabel1 = new JLabel("Flappy Squirrel");
             jlabel1.setFont(new Font("Stencil",5,30));
             jlabel1.setForeground(Color.green);
