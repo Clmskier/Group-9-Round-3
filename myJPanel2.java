@@ -28,10 +28,14 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
     JButton obstacle;
     JButton squirrel;
+    Timer gameButton;
     Timer gameLoop;
     int x = 100;
     int y = 100;
+    int a = 100;
+    int b = 100;
     ImageIcon f = new ImageIcon(this.getClass().getResource("flap.jpg"));
+    ImageIcon g = new ImageIcon(this.getClass().getResource("flap.jpg"));
 
     public myJPanel2() {
         super();
@@ -47,12 +51,14 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         addKeyListener(this);
         setFocusable(true);
         int delay = 50;
-        gameLoop = new Timer(delay,this);
+        gameButton = new Timer(delay, this);
+        int delay2 = 50;
+        gameLoop = new Timer(delay2, this);
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(f.getImage(), 200, 0, null);
+        g.drawImage(f.getImage(), a, 0, null);
         requestFocusInWindow();
 
     }
@@ -65,11 +71,15 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     public void keyPressed(KeyEvent ke) {
         int kk = ke.getKeyCode();
         if (kk == ke.VK_SPACE) {
+            gameButton.start();
+            y -= 100;
             gameLoop.start();
-            y-=100;
+            
+            
             System.out.println("key pressed");
         }
-        squirrel.setBounds(new Rectangle(x, y, 30, 30));
+        
+        squirrel.setBounds(new Rectangle(100, y, 30, 30));
     }
 
     @Override
@@ -78,8 +88,15 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        y+=8;
-        squirrel.setLocation(x, y);
-        System.out.println("action");           
-    }
+        y += 8;
+        squirrel.setLocation(100, y);
+        System.out.println("action");
+        Object obj = ae.getSource();
+        if(obj == gameLoop)
+        {
+            a=a-11;
+            repaint(); 
+            
+       }
+     }
 }

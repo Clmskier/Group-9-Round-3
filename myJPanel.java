@@ -38,6 +38,7 @@ public class myJPanel extends JPanel implements ActionListener
 		add(p2,"Center");
                 validate();
                 repaint();
+                
      	 }       
     }
 }

@@ -8,12 +8,11 @@
  * @author Jeff
  */
 public class App {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-         myJFrame mjf = new myJFrame();
+  public static void main(String args[])
+  {
+    myJFrame mjf = new myJFrame();
     
   }
 }
+
+
