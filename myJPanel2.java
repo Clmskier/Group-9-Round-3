@@ -32,10 +32,10 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     Timer gameLoop;
     int x = 100;
     int y = 100;
-    int a = 100;
-    int b = 100;
-    ImageIcon f = new ImageIcon(this.getClass().getResource("flap.jpg"));
-    ImageIcon g = new ImageIcon(this.getClass().getResource("flap.jpg"));
+    int background1_x = 0;
+    int background2_x = 884;
+    ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
+    ImageIcon background2 = new ImageIcon(this.getClass().getResource("flap.jpg"));
 
     public myJPanel2() {
         super();
@@ -58,8 +58,10 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(f.getImage(), a, 0, null);
+        g.drawImage(background1.getImage(), background1_x, 0, null);
+        g.drawImage(background2.getImage(), background2_x, 0, null);
         requestFocusInWindow();
+        System.out.println(this.getWidth() + " | " + this.getHeight());
 
     }
 
@@ -74,11 +76,11 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
             gameButton.start();
             y -= 100;
             gameLoop.start();
-            
-            
+
+
             System.out.println("key pressed");
         }
-        
+
         squirrel.setBounds(new Rectangle(100, y, 30, 30));
     }
 
@@ -90,13 +92,20 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     public void actionPerformed(ActionEvent ae) {
         y += 8;
         squirrel.setLocation(100, y);
-        System.out.println("action");
         Object obj = ae.getSource();
-        if(obj == gameLoop)
-        {
-            a=a-11;
-            repaint(); 
-            
-       }
-     }
+        if (obj == gameLoop) {
+
+            background1_x = background1_x - 11;
+            background2_x = background2_x - 11;
+            if (background1_x + background1.getIconWidth() < 0) {
+                background1_x = this.getWidth()-10;
+                System.out.println("reset1");
+            }
+            if (background2_x + background2.getIconWidth() < 0) {
+                background2_x = this.getWidth()-10;
+                System.out.println("reset2");
+            }
+            repaint();
+        }
+    }
 }
