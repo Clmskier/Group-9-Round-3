@@ -30,8 +30,8 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     JButton squirrel;
     Timer gameButton;
     Timer gameLoop;
-    int x = 100;
-    int y = 100;
+    int x = 200;
+    int y =200;
     int background1_x = 0;
     int background2_x = 884;
     ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
