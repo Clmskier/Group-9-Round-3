@@ -42,7 +42,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         setLayout(null);
 
         obstacle = new JButton("");
-        obstacle.setBounds(100, 10, 10, 100);
+        obstacle.setBounds(100, 0, 25, 250);
         add(obstacle);
         squirrel = new JButton("");
         squirrel.setBounds(x, y, 30, 30);
@@ -101,6 +101,11 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
                 background1_x = this.getWidth()-10;
                 System.out.println("reset1");
             }
+            if (background2_x + background2.getIconWidth() < 0) {
+                background2_x = this.getWidth()-10;
+                System.out.println("reset2");
+            }
+            repaint();
             if (background2_x + background2.getIconWidth() < 0) {
                 background2_x = this.getWidth()-10;
                 System.out.println("reset2");
