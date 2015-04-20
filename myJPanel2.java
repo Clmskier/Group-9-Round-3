@@ -29,6 +29,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
     JButton squirrel;
     JButton obstacle;
+    JButton obstacle2;
     Timer gameButton;
     Timer gameLoop;
     int x = 200;
@@ -36,6 +37,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     int background1_x = 0;
     int background2_x = 884;
     int obstacle_x = 250;
+    int obstacle_x2 = 250;
     ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
     ImageIcon background2 = new ImageIcon(this.getClass().getResource("flap.jpg"));
 
@@ -48,12 +50,17 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         squirrel.setBounds(x, y, 30, 30);
         Rectangle r1 = squirrel.getBounds();
         add(squirrel);
+        
         obstacle = new JButton("");
         obstacle.setBounds(obstacle_x, y, 30, 30);
-        
-        
         Rectangle r2 = obstacle.getBounds();
         add(obstacle);
+        
+        obstacle2 = new JButton("");
+        obstacle2.setBounds(obstacle_x2, y, 30, 30);
+        Rectangle r3 = obstacle2.getBounds();
+        add(obstacle2);
+        
         addKeyListener(this);
         setFocusable(true);
         int delay = 50;
@@ -103,9 +110,19 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         y += 8;
         squirrel.setLocation(100, y);
         Object obj = ae.getSource();
+        double r;
+         //r = Math.random();
+         //obstacle_x = (int) (r * 500);
+         //obstacle_x2 = (int) (r * 500);
         if (obj == gameLoop) {
             obstacle_x =obstacle_x-11;
-            obstacle.setBounds(obstacle_x, 150 , 30, 30);
+            obstacle_x2 =obstacle_x2-11;
+            if(obstacle_x == 0 && obstacle_x2 == 0 ){
+            obstacle_x =obstacle_x-11;
+            obstacle_x2 =obstacle_x2-11;
+            }
+            obstacle.setBounds(obstacle_x, 3, 30, 200);
+            obstacle2.setBounds(obstacle_x2,  300 , 30, 250);
             background1_x = background1_x - 11;
             background2_x = background2_x - 11;
             if (background1_x + background1.getIconWidth() < 0) {
