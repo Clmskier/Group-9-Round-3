@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -26,14 +27,15 @@ import javax.swing.Timer;
  */
 public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
-    JButton obstacle;
     JButton squirrel;
+    JButton obstacle;
     Timer gameButton;
     Timer gameLoop;
     int x = 200;
     int y =200;
     int background1_x = 0;
     int background2_x = 884;
+    int obstacle_x = 250;
     ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
     ImageIcon background2 = new ImageIcon(this.getClass().getResource("flap.jpg"));
 
@@ -41,13 +43,17 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         super();
         setLayout(null);
 
-        obstacle = new JButton("");
-        obstacle.setBounds(100, 0, 25, 250);
-        add(obstacle);
+   
         squirrel = new JButton("");
         squirrel.setBounds(x, y, 30, 30);
         Rectangle r1 = squirrel.getBounds();
         add(squirrel);
+        obstacle = new JButton("");
+        obstacle.setBounds(obstacle_x, y, 30, 30);
+        
+        
+        Rectangle r2 = obstacle.getBounds();
+        add(obstacle);
         addKeyListener(this);
         setFocusable(true);
         int delay = 50;
@@ -60,6 +66,10 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         super.paintComponent(g);
         g.drawImage(background1.getImage(), background1_x, 0, null);
         g.drawImage(background2.getImage(), background2_x, 0, null);
+        
+        Graphics2D g2d = (Graphics2D) g;
+        
+        //g2d.draw(rectangle);
         requestFocusInWindow();
         System.out.println(this.getWidth() + " | " + this.getHeight());
 
@@ -94,7 +104,8 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         squirrel.setLocation(100, y);
         Object obj = ae.getSource();
         if (obj == gameLoop) {
-
+            obstacle_x =obstacle_x-11;
+            obstacle.setBounds(obstacle_x, 150 , 30, 30);
             background1_x = background1_x - 11;
             background2_x = background2_x - 11;
             if (background1_x + background1.getIconWidth() < 0) {
@@ -105,11 +116,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
                 background2_x = this.getWidth()-10;
                 System.out.println("reset2");
             }
-            repaint();
-            if (background2_x + background2.getIconWidth() < 0) {
-                background2_x = this.getWidth()-10;
-                System.out.println("reset2");
-            }
+
             repaint();
         }
     }
