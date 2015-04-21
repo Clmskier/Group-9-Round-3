@@ -117,9 +117,9 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         if (obj == gameLoop) {
             obstacle_x =obstacle_x-11;
             obstacle_x2 =obstacle_x2-11;
-            if(obstacle_x == 0 && obstacle_x2 == 0 ){
-               obstacle.setBounds(obstacle_x, 3, 30, 200);
-               obstacle2.setBounds(obstacle_x2,  300, 30, 250);
+            if(obstacle_x <= 0 && obstacle_x2 <= 0 ){
+                obstacle_x=this.getWidth()-10;
+                obstacle_x2=this.getWidth()-10;                
 
             }
             obstacle.setBounds(obstacle_x, 3, 30, 200);
