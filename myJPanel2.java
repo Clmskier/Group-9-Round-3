@@ -36,7 +36,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     int background2_x = 884;
     ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
     ImageIcon background2 = new ImageIcon(this.getClass().getResource("flap.jpg"));
-
+    GameOverPanel gameOver;
 
     public myJPanel2() {
         super();
@@ -121,8 +121,6 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     @Override
     public void keyReleased(KeyEvent ke) {
     }
-    
-
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -166,11 +164,12 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
             repaint();
 
             if (r1.intersects(r3) || r2.intersects(r3) || r3.y > 650) {
-                gameLoop.stop();
-                gameButton.stop(); 
+                  //gameOver;
+                  gameLoop.stop();
+                  gameButton.stop();
 //                int dialogResult = JOptionPane.showConfirmDialog(null, "Restart?", "Game Over", dialogButton);
 //                if (dialogResult == JOptionPane.YES_OPTION) {
-                }
             }
         }
     }
+}

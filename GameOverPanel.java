@@ -11,7 +11,7 @@ public class GameOverPanel extends myJPanel {
     JLabel loser = new JLabel("You lose");
     JButton playagain = new JButton("Play again");
     JButton exit = new JButton("Exit Game");
-    ImageIcon exitflappybird = new ImageIcon(this.getClass().getResource("flap.jpg"));
+    ImageIcon exitflappybird = new ImageIcon(this.getClass().getResource("gameover.jpg"));
 
     GameOverPanel() {
         add(loser);
