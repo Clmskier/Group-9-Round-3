@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MenuComponent;
 import java.awt.Panel;
+import java.awt.PopupMenu;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,14 +20,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author Jeff
- */
 public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
     Timer gameButton;
@@ -43,11 +36,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     int background2_x = 884;
     ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
     ImageIcon background2 = new ImageIcon(this.getClass().getResource("flap.jpg"));
-    private Component frame;
-    private int dialogButton;
-    private KeyEvent KeyEvent;
-    private MenuComponent myJPanel2;
-    private MenuComponent panel;
+
 
     public myJPanel2() {
         super();
@@ -121,7 +110,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         int obstacle_x2 = obstacle_x;
         int obstacle_y2 = height + gap;
         int height2 = 550 - obstacle_y2;
-        int width = 30;
+        int width = 70;
         System.out.println("r1 x set: " + obstacle_x);
         r1.setBounds(obstacle_x, obstacle_y, width, height);
         r2.setBounds(obstacle_x2, obstacle_y2, width, height2);
@@ -179,12 +168,9 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
             if (r1.intersects(r3) || r2.intersects(r3) || r3.y > 650) {
                 gameLoop.stop();
                 gameButton.stop(); 
-                int dialogResult = JOptionPane.showConfirmDialog(null, "Restart?", "Game Over", dialogButton);
-                if (dialogResult == JOptionPane.YES_OPTION) {
-                    
-                    
+//                int dialogResult = JOptionPane.showConfirmDialog(null, "Restart?", "Game Over", dialogButton);
+//                if (dialogResult == JOptionPane.YES_OPTION) {
                 }
             }
         }
     }
-}

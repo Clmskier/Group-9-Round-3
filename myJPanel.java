@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,14 +8,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Jeff
- */
+
 public class myJPanel extends JPanel implements ActionListener
 {
 	myJPanel1 p1;
 	myJPanel2 p2;
+        GameOverPanel p3;
         
 	public myJPanel()
 	{
@@ -40,6 +35,13 @@ public class myJPanel extends JPanel implements ActionListener
                 repaint();
                 
      	 }       
+//                 if(obj == p2.gameOver ){
+//                     p3=new GameOverPanel();
+//                     remove(p2);
+//                     add(p3,"Center");
+//                     validate();
+//                     repaint();
+             //    }
     }
 }
  

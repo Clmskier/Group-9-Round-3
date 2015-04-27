@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,10 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-/**
- *
- * @author Jeff
- */
+
 public class myJPanel1 extends JPanel {
     JButton playButton;
     ImageIcon ip = new ImageIcon(this.getClass().getResource("flappy_bird.jpg"));
