@@ -4,24 +4,22 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
+public class myJFrame extends JFrame {
 
-public class myJFrame extends JFrame
+    myJPanel mjp;
 
-{
-	myJPanel mjp;
-	public myJFrame ()
-	{
-            
-            
-            super ("Flappy Squirrel");
+    public myJFrame() {
+
+
+        super("Flappy Squirrel");
 //------------------------------------------------------
 // Create components
-    	mjp = new myJPanel();   	
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(mjp,"Center");
+        mjp = new myJPanel();
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(mjp, "Center");
 //------------------------------------------------------
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize (450, 680);
-		setVisible(true);
-	}
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(450, 680);
+        setVisible(true);
+    }
 }

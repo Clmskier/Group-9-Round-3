@@ -45,6 +45,8 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         r1 = new Rectangle();
         r2 = new Rectangle();
         r3 = new Rectangle();
+        gameOver = new GameOverPanel();
+        add(gameOver);
         Score = new JLabel("" + s);
         Score.setOpaque(true);
         Score.setBounds(200, 100, 100, 100);
@@ -164,9 +166,8 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
             repaint();
 
             if (r1.intersects(r3) || r2.intersects(r3) || r3.y > 650) {
-                  //gameOver;
-                  gameLoop.stop();
-                  gameButton.stop();
+                gameLoop.stop();
+                gameButton.stop();
 //                int dialogResult = JOptionPane.showConfirmDialog(null, "Restart?", "Game Over", dialogButton);
 //                if (dialogResult == JOptionPane.YES_OPTION) {
             }
