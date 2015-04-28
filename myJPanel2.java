@@ -83,7 +83,6 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         g2d.setColor(Color.green);
         g2d.fill(r1);
         g2d.fill(r2);
-        //g2d.fill(r3);
 
 
     }
