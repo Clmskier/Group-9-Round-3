@@ -6,7 +6,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MenuComponent;
 import java.awt.Panel;
-import java.awt.PopupMenu;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,11 +13,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
 
@@ -34,19 +33,22 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
     Random random = new Random();
     int background1_x = 0;
     int background2_x = 884;
+    boolean gameisover;
     ImageIcon background1 = new ImageIcon(this.getClass().getResource("flap.jpg"));
     ImageIcon background2 = new ImageIcon(this.getClass().getResource("flap.jpg"));
-    GameOverPanel gameOver;
+//    GameOverPanel gameOver;
+    myJPanel mjp;
 
-    public myJPanel2() {
+    public myJPanel2(myJPanel imjp) {
         super();
+        mjp = imjp;
         setLayout(null);
 
         r1 = new Rectangle();
         r2 = new Rectangle();
         r3 = new Rectangle();
-        gameOver = new GameOverPanel();
-        add(gameOver);
+//        gameOver = new GameOverPanel();
+//        add(gameOver);
         Score = new JLabel("" + s);
         Score.setOpaque(true);
         Score.setBounds(200, 100, 100, 100);
@@ -79,6 +81,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         g2d.fill(r1);
         g2d.fill(r2);
         g2d.fill(r3);
+
 
     }
 
@@ -168,8 +171,20 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
             if (r1.intersects(r3) || r2.intersects(r3) || r3.y > 650) {
                 gameLoop.stop();
                 gameButton.stop();
+//                  gameisover
+                //this.add(gameOver);
+                System.out.println("loser");
+                repaint();
+                //
+                  mjp.p3 = new GameOverPanel(mjp);
+                mjp.remove(mjp.p2);
+                mjp.add(mjp.p3, "Center");
+                mjp.validate();
+                mjp.repaint();
+
 //                int dialogResult = JOptionPane.showConfirmDialog(null, "Restart?", "Game Over", dialogButton);
 //                if (dialogResult == JOptionPane.YES_OPTION) {
+
             }
         }
     }
