@@ -47,6 +47,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         r1 = new Rectangle();
         r2 = new Rectangle();
         r3 = new Rectangle();
+        
 //        gameOver = new GameOverPanel();
 //        add(gameOver);
         Score = new JLabel("" + s);
@@ -72,7 +73,9 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         super.paintComponent(g);
         g.drawImage(background1.getImage(), background1_x, 0, null);
         g.drawImage(background2.getImage(), background2_x, 0, null);
-
+        ImageIcon squirrel = new ImageIcon(this.getClass().getResource("squirrel.jpg"));
+        g.drawImage(squirrel.getImage(), r3.x, r3.y, null);
+       
         Graphics2D g2d = (Graphics2D) g;
 
         //g2d.draw(rectangle);
@@ -80,7 +83,7 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
         g2d.setColor(Color.green);
         g2d.fill(r1);
         g2d.fill(r2);
-        g2d.fill(r3);
+        //g2d.fill(r3);
 
 
     }
@@ -181,10 +184,6 @@ public class myJPanel2 extends JPanel implements KeyListener, ActionListener {
                 mjp.add(mjp.p3, "Center");
                 mjp.validate();
                 mjp.repaint();
-
-//                int dialogResult = JOptionPane.showConfirmDialog(null, "Restart?", "Game Over", dialogButton);
-//                if (dialogResult == JOptionPane.YES_OPTION) {
-
             }
         }
     }

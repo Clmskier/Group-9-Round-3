@@ -47,7 +47,6 @@ public class myJPanel3 extends JPanel implements KeyListener, ActionListener {
         r1 = new Rectangle();
         r2 = new Rectangle();
         r3 = new Rectangle();
-//        gameOver = new GameOverPanel();
         add(gameOver);
         Score = new JLabel("" + s);
         Score.setOpaque(true);
